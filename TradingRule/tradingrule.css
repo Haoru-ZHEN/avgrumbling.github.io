@@ -9,7 +9,7 @@ body{
      width: 100%;
      min-height: 100vh;
      
-     background-image: url('rumbling.github.io/view.jpg');
+     background-image: url('./view.jpg');
      background-position: center;
      background-attachment: fixed;
      background-size: cover;
