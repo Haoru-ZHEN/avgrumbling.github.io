@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+    <title>Rumbling</title>
+    <link rel="stylesheet" href="Average.css" />
+    <script defer src="Average.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h2 class="logo">Rumbling</h2>
+      <ul>
+        <li><a href="../">Home</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li>
+          <a href="Average.html" class="active">Calculate Average Price</a>
+        </li>
+        <li>
+          <a href="../TradingRule/tradingrule.html">Trading Rules</a>
+        </li>
+        <li><a href="#">Today trade</a></li>
+      </ul>
+    </header>
+
+    <div class="wrapper" id="wrapper">
+      <div class="form-box">
+        <h2>Calculate Average Price</h2>
+        <form id="avgform">
+          <div class="input-box">
+            <input type="text" required id="price" autocomplete="off" />
+            <label>Current average price</label>
+          </div>
+          <div class="input-box">
+            <input type="text" required id="amount" autocomplete="off" />
+            <label>Current position amount</label>
+          </div>
+          <button class="btn" onclick="rumble()">Calculate Unit</button>
+          <h3 id="calunit">Unit:</h3>
+
+          <div class="input-box">
+            <input type="text" required id="tprice" autocomplete="off" />
+            <label>Throttle price</label>
+          </div>
+          <div class="input-box">
+            <input type="text" required id="tamount" autocomplete="off" />
+            <label>Throttle position amount</label>
+          </div>
+          <button class="btn" onclick="calPrice()">
+            Calculate average price
+          </button>
+          <h3 id="avgLabel">Average Price:</h3>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
