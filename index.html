@@ -5,7 +5,7 @@
     <title>Rumbling</title>
     <link rel="stylesheet" href="index.css" />
     <link rel="icon" href="eren2.ico" />
-    <script defer src="index.js"></script>
+
     <script
       src="https://kit.fontawesome.com/736b8c9e75.js"
       crossorigin="anonymous"
@@ -20,7 +20,7 @@
         <li><a href="#">Portfolio</a></li>
         <li><a href="avgPrice/Average.html">Calculate Average Price</a></li>
         <li><a href="TradingRule/tradingrule.html">Trading Rules</a></li>
-        <li><a href="#">Today trade</a></li>
+        <li><a href="TodayTrade/TodayTrade.html">Today trade</a></li>
         <button class="btnlogin-popup" id="loginPopBut" onclick="popLogin()">
           Login
         </button>
@@ -36,18 +36,18 @@
       </span>
       <div class="form-box login">
         <h2>Login</h2>
-        <form>
+        <form id="theform">
           <div class="input-box">
-            <i class="fa-solid fa-envelope"></i>
-            <input type="text" required />
-            <label>Email</label>
+            <i class="fa-solid fa-key"></i>
+            <input id="idInput" type="text" required />
+            <label>Id</label>
           </div>
           <div class="input-box">
             <i class="fa-solid fa-lock"></i>
-            <input type="password" required />
-            <label>Password</label>
+            <input id="pwdInput" type="password" required />
+            <label>Passphrase</label>
           </div>
-          <button class="btn">Login</button>
+          <button id="loginBut" class="btn" onclick="login()">Login</button>
         </form>
       </div>
     </div>
@@ -78,5 +78,13 @@
         この世界の全てを踏み潰すまで俺は止まらない！」
       </p>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-database-compat.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
