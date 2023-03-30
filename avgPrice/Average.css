@@ -18,7 +18,7 @@ body{
     width: 100%;
     min-height: 100vh;
     
-    background-image: url('/path2.png');
+    background-image: url('../path2.png');
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
