@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+          <title>Rumbling</title>
+          <link rel="stylesheet" href="ChartPage.css" />
+          <link rel="icon" href="../eren2.ico" />
+
+          <script src="https://kit.fontawesome.com/736b8c9e75.js" crossorigin="anonymous"></script>
+     </head>
+
+     <body>
+          <header>
+               <h2 class="logo" onclick="showInfo()">Rumbling</h2>
+               <ul>
+                    <li><a href="../" class="active">Home</a></li>
+                    <li><a href="../Portfolio/Portfolio.html">Portfolio</a></li>
+                    <li><a href="../avgPrice/Average.html">Calculate Average Price</a></li>
+                    <li><a href="../TradingRule/tradingrule.html">Trading Rules</a></li>
+                    <li><a href="Screener.html">Screener</a></li>
+                    <!--
+        <button class="btnlogin-popup" id="loginPopBut" onclick="popLogin()">
+          Login
+        </button>-->
+               </ul>
+          </header>
+
+          <div class="wrapper" id="wrapper"></div>
+          <div class="infoDivClass" id="infoDiv">
+               <h2>Chart Info</h2>
+               <h3>Support & Resistance</h3>
+               <ul id="ul_SNR"></ul>
+          </div>
+
+          <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
+          <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-stock.min.js"></script>
+          <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-annotations.min.js"></script>
+          <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-data-adapter.min.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-app-compat.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-database-compat.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-storage-compat.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+          <script src="ChartPage.js"></script>
+     </body>
+</html>

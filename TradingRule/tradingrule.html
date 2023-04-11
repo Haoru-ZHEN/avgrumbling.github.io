@@ -1,90 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
-    <title>Rumbling</title>
-    <link rel="stylesheet" href="tradingrule.css" />
-    <link rel="icon" href="../eren2.ico" />
-    <script defer src="tradingrule.js"></script>
-    <script
-      src="https://kit.fontawesome.com/736b8c9e75.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
+     <head>
+          <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+          <title>Rumbling</title>
+          <link rel="stylesheet" href="tradingrule.css" />
+          <link rel="icon" href="../eren2.ico" />
+          <script defer src="tradingrule.js"></script>
+          <script src="https://kit.fontawesome.com/736b8c9e75.js" crossorigin="anonymous"></script>
+     </head>
 
-  <body>
-    <header>
-      <h2 class="logo">Rumbling</h2>
-      <ul>
-        <li><a href="../">Home</a></li>
-        <li><a href="../Portfolio/Portfolio.html">Portfolio</a></li>
-        <li>
-          <a href="../avgPrice/Average.html">Calculate Average Price</a>
-        </li>
-        <li><a href="tradingrule.html" class="active">Trading Rules</a></li>
-        <li><a href="../TodayTrade/TodayTrade.html">Today trade</a></li>
-        <!--
+     <body>
+          <header>
+               <h2 class="logo">Rumbling</h2>
+               <ul>
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../Portfolio/Portfolio.html">Portfolio</a></li>
+                    <li>
+                         <a href="../avgPrice/Average.html">Calculate Average Price</a>
+                    </li>
+                    <li><a href="tradingrule.html" class="active">Trading Rules</a></li>
+                    <li><a href="../Screener/Screener.html">Screener</a></li>
+                    <!--
         <button class="btnlogin-popup" id="loginPopBut" onclick="popBox()">
           Login
         </button>-->
-      </ul>
-    </header>
-    <!--
+               </ul>
+          </header>
+          <!--
     <section>
       <img src="/master/view.jpg" id="view" />
     </section>
     -->
 
-    <div class="rule-box">
-      <h1>Trading Rules</h1>
-      <ul>
-        <li>只在临界点做单</li>
-        <li>Max 3 loss in a day, stop trade that pair</li>
-        <li>Follow trend</li>
-        <li>Avoid突破单</li>
-        <li>Be patient</li>
-        <li>放Cut loss</li>
-        <li>一单亏最多10% wallet</li>
-        <li>Don’t fomo</li>
-        <li>Hold 盈利单 until trend 转</li>
-        <li>集中trading pair,不要交易太多品种</li>
-        <li>赚该赚的钱，亏该亏的钱</li>
-        <li>亏超过15% wallet,就停一天</li>
-        <li>做中长线</li>
-        <li>70% Spot, 30% Leverage (initial investment)</li>
-        <li>交易是单打独斗，不要被别人的分析影响</li>
-        <li>突破单大部分都是亏损</li>
-      </ul>
+          <div class="rule-box">
+               <h1>Trading Rules</h1>
+               <ul>
+                    <li>只在临界点做单</li>
+                    <li>Max 3 loss in a day, stop trade that pair</li>
+                    <li>Follow trend</li>
+                    <li>Avoid突破单</li>
+                    <li>Be patient</li>
+                    <li>放Cut loss</li>
+                    <li>一单亏最多10% wallet</li>
+                    <li>Don’t fomo</li>
+                    <li>Hold 盈利单 until trend 转</li>
+                    <li>集中trading pair,不要交易太多品种</li>
+                    <li>赚该赚的钱，亏该亏的钱</li>
+                    <li>亏超过15% wallet,就停一天</li>
+                    <li>做中长线</li>
+                    <li>70% Spot, 30% Leverage (initial investment)</li>
+                    <li>交易是单打独斗，不要被别人的分析影响</li>
+                    <li>突破单大部分都是亏损</li>
+               </ul>
 
-      <h2>Have you follow?</h2>
-      <div class="checkbox-group">
-        <label>
-          <input type="checkbox" name="fomo" id="fomo" onclick="checking()" />
-          No FOMO?
-        </label>
-        <br />
-        <label>
-          <input type="checkbox" name="box" id="box" onclick="checking()" />
-          Inside 临界店?
-        </label>
-        <br />
-        <label>
-          <input type="checkbox" name="num" id="num" onclick="checking()" />
-          Not more than 3 trades?
-        </label>
-      </div>
-      <div class="btn-group">
-        <button class="disable" id="tradebut" onclick="popBox()">
-          Wake Up! Zhen
-        </button>
-      </div>
-    </div>
+               <h2>Have you follow?</h2>
+               <div class="checkbox-group">
+                    <label>
+                         <input type="checkbox" name="fomo" id="fomo" onclick="checking()" />
+                         No FOMO?
+                    </label>
+                    <br />
+                    <label>
+                         <input type="checkbox" name="box" id="box" onclick="checking()" />
+                         Inside 临界店?
+                    </label>
+                    <br />
+                    <label>
+                         <input type="checkbox" name="num" id="num" onclick="checking()" />
+                         Not more than 3 trades?
+                    </label>
+               </div>
+               <div class="btn-group">
+                    <button class="disable" id="tradebut" onclick="popBox()">Wake Up! Zhen</button>
+               </div>
+          </div>
 
-    <div class="wrapper" id="wrapper">
-      <div class="continue-box">
-        <h2>Congratulation! You have followed the rules</h2>
-        <button class="btn" onclick="closeBox()">Close</button>
-      </div>
-    </div>
-  </body>
+          <div class="wrapper" id="wrapper">
+               <div class="continue-box">
+                    <h2>Congratulation! You have followed the rules</h2>
+                    <button class="btn" onclick="closeBox()">Close</button>
+               </div>
+          </div>
+     </body>
 </html>

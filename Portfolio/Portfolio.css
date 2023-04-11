@@ -124,12 +124,13 @@ header button:hover{
      background-image: linear-gradient(to right, var(--pink), var(--purple));
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-     opacity: 1;
+     opacity: 0.75;
      transition: opacity 1s ease ;
 }
 
 .addDiv h2:hover{
-     opacity: 0.5;
+     opacity: 1;
+     /*text-shadow: 0 0 10px #EC4899, 0 0 10px #8B5CF6, 0 0 10px #EC4899, 0 0 10px #8B5CF6;*/
 }
 
 #newEntry-form {

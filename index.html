@@ -1,90 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
-    <title>Rumbling</title>
-    <link rel="stylesheet" href="index.css" />
-    <link rel="icon" href="eren2.ico" />
+     <head>
+          <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+          <title>Rumbling</title>
+          <link rel="stylesheet" href="index.css" />
+          <link rel="icon" href="eren2.ico" />
 
-    <script
-      src="https://kit.fontawesome.com/736b8c9e75.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
+          <script src="https://kit.fontawesome.com/736b8c9e75.js" crossorigin="anonymous"></script>
+     </head>
 
-  <body>
-    <header>
-      <h2 class="logo">Rumbling</h2>
-      <ul>
-        <li><a href="#" class="active">Home</a></li>
-        <li><a href="Portfolio/Portfolio.html">Portfolio</a></li>
-        <li><a href="avgPrice/Average.html">Calculate Average Price</a></li>
-        <li><a href="TradingRule/tradingrule.html">Trading Rules</a></li>
-        <li><a href="TodayTrade/TodayTrade.html">Today trade</a></li>
-        <button class="btnlogin-popup" id="loginPopBut" onclick="popLogin()">
-          Login
-        </button>
-      </ul>
-    </header>
+     <body>
+          <header>
+               <h2 class="logo">Rumbling</h2>
+               <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="Portfolio/Portfolio.html">Portfolio</a></li>
+                    <li><a href="avgPrice/Average.html">Calculate Average Price</a></li>
+                    <li><a href="TradingRule/tradingrule.html">Trading Rules</a></li>
+                    <li><a href="Screener/Screener.html">Screener</a></li>
+                    <button class="btnlogin-popup" id="loginPopBut" onclick="popLogin()">
+                         Login
+                    </button>
+               </ul>
+          </header>
 
-    <section>
-      <img src="view.jpg" id="view" />
-    </section>
-    <div class="wrapper" id="wrapper">
-      <span class="icon-close" onclick="closeLogin()">
-        <i class="fa-solid fa-xmark"></i>
-      </span>
-      <div class="form-box login">
-        <h2>Login</h2>
-        <form id="theform">
-          <div class="input-box">
-            <i class="fa-solid fa-key"></i>
-            <input id="idInput" type="text" required />
-            <label>Id</label>
+          <section>
+               <img src="view.jpg" id="view" />
+          </section>
+          <div class="wrapper" id="wrapper">
+               <span class="icon-close" onclick="closeLogin()">
+                    <i class="fa-solid fa-xmark"></i>
+               </span>
+               <div class="form-box login">
+                    <h2>Login</h2>
+                    <form id="theform">
+                         <div class="input-box">
+                              <i class="fa-solid fa-key"></i>
+                              <input id="idInput" type="text" required />
+                              <label>Id</label>
+                         </div>
+                         <div class="input-box">
+                              <i class="fa-solid fa-lock"></i>
+                              <input id="pwdInput" type="password" required />
+                              <label>Passphrase</label>
+                         </div>
+                         <button id="loginBut" class="btn" onclick="login()">Login</button>
+                    </form>
+               </div>
           </div>
-          <div class="input-box">
-            <i class="fa-solid fa-lock"></i>
-            <input id="pwdInput" type="password" required />
-            <label>Passphrase</label>
+          <div class="intro">
+               <h1>Rumbling</h1>
+               <p>
+                    "To all Ymir's subjects, I am Eren Yeager. I will now begin the rumbling of the
+                    founding titan. I am speaking to all subjects of Ymir through paths. All walls
+                    that exist in this world will crumble. The titans buried deep within the walls
+                    have now begun to walk. My goal is to protect the people of Paradis Island, the
+                    place where I was born. However, the rest of the world desires the extinction of
+                    the people of Paradis. Until all Ymir's subjects outside of this island are
+                    destroyed, this state of emergency will not end. I will continue moving forward
+                    towards this desire. The wall titans that stand in my way will be trampled upon
+                    until I have reached this goal. I will not stop until I have trampled every inch
+                    of this world!"
+               </p>
+               <p>
+                    「全てのユミルの民に告ぐ 俺の名はエレン・イェーガー 始祖の巨人の力を開始する
+                    全てのユミルの民へ話し掛けている パラデイ島にある全ての壁の 抗しきれぬ圧が解け
+                    その中に埋められたいた全ての巨人は歩み始めた 俺の目的は俺が生まれ育った
+                    パラデイ島の人々を守ることにある しかし世界はパラデイの人々を
+                    死滅させることを望んでいる この島以外ならず、全てのユミルの民が
+                    殺され尽くすまで、この緊急事態は終わらない 俺はこの願望に向かって進む
+                    道に立ちはだかる壁の巨人は踏み潰される
+                    この世界の全てを踏み潰すまで俺は止まらない！」
+               </p>
           </div>
-          <button id="loginBut" class="btn" onclick="login()">Login</button>
-        </form>
-      </div>
-    </div>
-    <div class="intro">
-      <h1>Rumbling</h1>
-      <p>
-        "To all Ymir's subjects, I am Eren Yeager. I will now begin the rumbling
-        of the founding titan. I am speaking to all subjects of Ymir through
-        paths. All walls that exist in this world will crumble. The titans
-        buried deep within the walls have now begun to walk. My goal is to
-        protect the people of Paradis Island, the place where I was born.
-        However, the rest of the world desires the extinction of the people of
-        Paradis. Until all Ymir's subjects outside of this island are destroyed,
-        this state of emergency will not end. I will continue moving forward
-        towards this desire. The wall titans that stand in my way will be
-        trampled upon until I have reached this goal. I will not stop until I
-        have trampled every inch of this world!"
-      </p>
-      <p>
-        「全てのユミルの民に告ぐ 俺の名はエレン・イェーガー
-        始祖の巨人の力を開始する 全てのユミルの民へ話し掛けている
-        パラデイ島にある全ての壁の 抗しきれぬ圧が解け
-        その中に埋められたいた全ての巨人は歩み始めた 俺の目的は俺が生まれ育った
-        パラデイ島の人々を守ることにある しかし世界はパラデイの人々を
-        死滅させることを望んでいる この島以外ならず、全てのユミルの民が
-        殺され尽くすまで、この緊急事態は終わらない 俺はこの願望に向かって進む
-        道に立ちはだかる壁の巨人は踏み潰される
-        この世界の全てを踏み潰すまで俺は止まらない！」
-      </p>
-    </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-database-compat.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-    <script src="index.js"></script>
-  </body>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-app-compat.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-database-compat.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+          <script src="index.js"></script>
+     </body>
 </html>

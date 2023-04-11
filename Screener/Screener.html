@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+    <title>Screener - Rumbling</title>
+    <link rel="stylesheet" href="Screener.css" />
+    <link rel="icon" href="../eren2.ico" />
+
+    <script
+      src="https://kit.fontawesome.com/736b8c9e75.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <h2 class="logo">Rumbling</h2>
+      <ul>
+        <li><a href="../">Home</a></li>
+        <li><a href="../Portfolio/Portfolio.html">Portfolio</a></li>
+        <li><a href="../avgPrice/Average.html">Calculate Average Price</a></li>
+        <li><a href="../TradingRule/tradingrule.html">Trading Rules</a></li>
+        <li><a href="../TodayTrade/TodayTrade.html" class="active">Screener</a></li>
+        <button class="btnlogin-popup" onclick="goTodaytrade()">
+          Get CSV
+        </button>
+      </ul>
+    </header>
+
+      <div class="addDiv">
+      <h2>Add new pair</h2>
+      <form id="newEntry-form">
+        <input
+        type="text" 
+        name="nameInput" 
+        id="nameInput" 
+        placeholder="Entry pair name"/>
+        <input 
+        type="file"
+        name="fileInput" 
+        id="fileInput" 
+        placeholder="Url" accept=".csv"/>
+        <a onclick="addPair()">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Add
+        </a><!--
+        <button class="btn" type="file" onclick="uploadFile()">Upload CSV</button>-->
+    </div>
+    
+    <!--skeleton loading
+    <div class="skeleton">
+      <div class="imageLoader"></div>
+      <div class="contentLoader"></div>
+
+    </div>-->
+
+    <div class="listDiv" id="listDiv">
+      <h2>Stock Screener</h2>
+      <table id="thetable">
+        <tr class="headerTable">
+          <th id="firstHeader">No.</th>
+          <th>Pair</th>
+          <th>URL</th>
+          <th>Price</th>
+          <th>Near support</th>
+          <th>Near resistance</th>
+          <th>DL trend</th>
+          <th class="iconTable"><i class="fa-solid fa-trash"></i></th>
+          <th class="iconTable"><i class="fa-solid fa-square-poll-vertical"></i></th>
+        </tr><!--
+        <tr>
+          <th class="firstData">1</th>
+          <th class="item">BTCUSDT Spot</th>
+          <th class="item">27900</th>
+          <th class="item">Yes</th>
+          <th class="item">No</th>
+          <th class="item">Up trend</th>
+          <th class="item iconTable">
+            <i id="trashIcon" class="fa-solid fa-trash"></i>
+          </th>
+          <th class="item iconTable">
+            <i id="chartIcon" class="fa-solid fa-square-poll-vertical"></i>
+          </th>-->
+      </table>
+    </div>
+
+    <div id="loader" class="loader"></div>
+    <script
+      src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://cdn.anychart.com/releases/8.7.1/js/anychart-stock.min.js"
+      type="text/javascript"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-data-adapter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-storage-compat.js"></script>
+    <script src="Screener.js"></script>
+  </body>
+</html>
