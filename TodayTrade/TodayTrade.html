@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+          <title>Today Trade - Rumbling</title>
+          <link rel="stylesheet" href="TodayTrade.css" />
+          <link rel="icon" href="../eren2.ico" />
+
+          <script src="https://kit.fontawesome.com/736b8c9e75.js" crossorigin="anonymous"></script>
+     </head>
+
+     <body>
+          <header>
+               <h2 class="logo" onclick="showWrapper()">Rumbling</h2>
+               <ul>
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../Portfolio/Portfolio.html">Portfolio</a></li>
+                    <li><a href="../avgPrice/Average.html">Calculate Average Price</a></li>
+                    <li><a href="../TradingRule/tradingrule.html">Trading Rules</a></li>
+                    <li><a href="../Screener/Screener.html" class="active">Screener</a></li>
+                    <!--
+                    <button class="btnlogin-popup" id="loginPopBut" onclick="popLogin()">
+                         Login
+                    </button>-->
+               </ul>
+          </header>
+          <!--
+          <div class="wrapper" id="wrapper"></div>-->
+          <div class="contentDiv">
+               <div class="contentCalDiv">
+                    <div class="TimestampDiv">
+                         <h2>Date To Timestamp</h2>
+                         <div class="input-box">
+                              <input id="yearInput" oninput="convertTimestamp()" />
+                              <label>Year (yyyy)</label>
+                         </div>
+                         <div class="input-box">
+                              <input id="monthInput" oninput="convertTimestamp()" />
+                              <label>Month (mm)</label>
+                         </div>
+                         <div class="input-box">
+                              <input id="dayInput" oninput="convertTimestamp()" />
+                              <label>Day (dd)</label>
+                         </div>
+                         <img src="convertIcon.JPG" />
+                         <div class="butDiv">
+                              <button id="calBut" class="btn" onclick="getLatest()">
+                                   Latest timestamp
+                              </button>
+                              <button id="calBut" class="btn" onclick="convertTimestamp()">
+                                   Convert
+                              </button>
+                         </div>
+
+                         <div class="input-box">
+                              <input id="timestampLabel" oninput="convertDate()" />
+                              <label>Timestamp</label>
+                         </div>
+                    </div>
+                    <div class="vrbreak"></div>
+                    <div class="wrapper2" id="wrapper2">
+                         <div class="form-box">
+                              <h2>Candle Data API</h2>
+                              <div class="switchDiv">
+                                   <label class="switch"
+                                        ><!--
+                                        <input
+                                             type="checkbox"
+                                             onclick="changeStock()"
+                                             id="switchBox"
+                                        />
+                                        <span class="slider"></span>-->
+                                        <input
+                                             type="checkbox"
+                                             name=""
+                                             id="checkbox"
+                                             onclick="changeStock()"
+                                        />
+                                        <div class="toggle">
+                                             <div class="star1"></div>
+                                             <div class="star2"></div>
+                                        </div> </label
+                                   ><!--
+                                   <label for="checkbox">
+                                        <input
+                                             type="checkbox"
+                                             name=""
+                                             id="checkbox"
+                                             onclick="changeStock()"
+                                        />
+                                        <div class="toggle">
+                                             <div class="star1"></div>
+                                             <div class="star2"></div>
+                                        </div>
+                                   </label>-->
+                                   <h3 id="switchLabel">Cryptocurrency</h3>
+                              </div>
+                              <!--
+                              <div class="daynight">
+                                   <label for="checkbox">
+                                        <input
+                                             type="checkbox"
+                                             name=""
+                                             id="checkbox"
+                                             onclick="changeStock()"
+                                        />
+                                        <div class="toggle">
+                                             <div class="star1"></div>
+                                             <div class="star2"></div>
+                                        </div>
+                                   </label>
+                              </div>-->
+
+                              <div class="input-box">
+                                   <input
+                                        id="urlInput"
+                                        type="text"
+                                        list="urlOptions_crypto"
+                                        required
+                                   />
+                                   <label id="urlInputLabel"
+                                        >URL (https://api.binance.com/api/v3/klines?):</label
+                                   >
+                                   <datalist id="urlOptions_crypto">
+                                        <option value="https://api.binance.com/api/v3/klines?">
+                                             Binance Spot API
+                                        </option>
+                                        <option value="https://fapi.binance.com/fapi/v1/klines?">
+                                             Binance Future API
+                                        </option>
+                                   </datalist>
+                                   <datalist id="urlOptions_stock">
+                                        <option
+                                             value="https://twelve-data1.p.rapidapi.com/time_series?"
+                                        >
+                                             Stock API
+                                        </option>
+                                   </datalist>
+                              </div>
+                              <div class="input-box">
+                                   <input id="symbolInput" type="text" required />
+                                   <label id="symbolInputLabel">Symbol (BTCUSDT):</label>
+                              </div>
+                              <label for="intervalBox">Interval:</label>
+                              <select id="intervalBox" class="intervalBox" title="Interval">
+                                   <option value="1h">1h</option>
+                                   <option value="4h">4h</option>
+                                   <option value="8h">8h</option>
+                                   <option value="12h">12h</option>
+                                   <option value="1d">1d</option>
+                                   <option value="3d">3d</option>
+                                   <option value="1w">1w</option></select
+                              ><!--
+                              <div class="input-box">
+                                   <input id="intervalInput" type="text" required />
+                                   <label>Interval (1h,4h,8h,12h,1d,3d):</label>
+                              </div>-->
+                              <div class="input-box">
+                                   <input id="fromInput" type="date" required />
+                                   <label id="dateLabel">From: (milliseconds)</label>
+                              </div>
+                              <div class="input-box">
+                                   <input id="toInput" type="date" required />
+                                   <label id="dateLabel">To: (milliseconds)</label>
+                              </div>
+
+                              <button id="getDataBut" class="btn" onclick="getCandleData()">
+                                   Get Candle Data
+                              </button>
+                         </div>
+                    </div>
+               </div>
+               <div class="hrbreak"></div>
+               <div class="resultDiv">
+                    <div class="responseUpDiv">
+                         <div class="fileinputBox">
+                              <label>File name:</label>
+                              <input id="fileNameInput" />
+                         </div>
+                         <button id="exportBut" onclick="exportToCsv()">Export CSV</button>
+                    </div>
+                    <textarea
+                         id="responseTextarea"
+                         placeholder="API Response"
+                         rows="10"
+                         cols="80"
+                         wrap="off"
+                    ></textarea>
+               </div>
+          </div>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+          <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
+          <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-stock.min.js"></script>
+          <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-annotations.min.js"></script>
+          <!--
+          <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+          <script src="https://cdn.anychart.com/releases/v8/js/anychart-stock.min.js"></script>
+          <script src="https://cdn.anychart.com/releases/v8/js/anychart-annotations.min.js"></script>-->
+          <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-data-adapter.min.js"></script>
+
+          <script src="TodayTrade.js"></script>
+     </body>
+</html>
