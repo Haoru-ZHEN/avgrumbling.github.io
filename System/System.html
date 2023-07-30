@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <!--<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />-->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Trading System</title>
+     <link rel="stylesheet" href="System.css" />
+     <link rel="icon" href="../falcon.png" />
+
+     <script src="https://kit.fontawesome.com/736b8c9e75.js" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/solid.css">
+</head>
+
+<body>
+     <header class="mainHeader" onmouseleave="removeBox()">
+          <h2 class="logo">TradeFinder</h2>
+          <ul class="midUl" onmouseenter="showBox()">
+               <li><a href="../index.html" onmouseover="moveBox(event)">Home</a></li>
+               <li><a href="../Portfolio/Portfolio.html" onmouseover="moveBox(event)">Portfolio</a></li>
+               <li><a href="../Watchlist/Watchlist.html" onmouseover="moveBox(event)">Watchlist</a></li>
+               <li><a href="System.html" onmouseover="moveBox(event)">Trading System</a></li>
+               <li><a href="../Rule/Rule.html" onmouseover="moveBox(event)">Rules</a></li>
+          </ul>
+          <i id="menuIcon" class="uil uil-bars menuIcon" onclick="openMenu()"></i>
+
+          <div class="box"></div>
+     </header>
+
+     <div class="container">
+
+          <h2>Trading System</h2>
+          <ul class="optionUl">
+               <!--<div class="optionBox"></div>-->
+               <li class="activeOption" onclick="systemClick(event,0)">Entry System</li>
+               <li onclick="systemClick(event,1)">Throttle System</li>
+               <li onclick="systemClick(event,2)">Cutloss System</li>
+               <li onclick="systemClick(event,3)">Take Profit System</li>
+               <li onclick="systemClick(event,4)">Damage Cost Calculate</li>
+          </ul>
+
+
+          <div class="contentDiv">
+               <div class="entrySys">
+                    <ul class="longshortUl">
+                         <div class="lsBox"></div>
+                         <li class="activeLong" id="longSwitch" onclick="longshortClick(event,0)">Long</li>
+                         <li class="" id="shortSwitch" onclick="longshortClick(event,1)">Short</li>
+                    </ul>
+                    <div class="div1">
+                         <div class="input-box">
+                              <label for="pairInput">Pair Name</label>
+                              <input id="pairInput"autocomplete="off" />
+                         </div>
+                         <div class="input-box">
+                              <label for="entrypriceInput">Entry Price</label>
+                              <input id="entrypriceInput" oninput="twoFunction(event)" autocomplete="off" />
+                         </div>
+                         <div class="input-box">
+                              <label for="initialInput">Initial Amount (USD)</label>
+                              <input id="initialInput" oninput="calculateEntry()" autocomplete="off" />
+                         </div>
+                         <div class="input-box">
+                              <label for="apiInput">Price API</label>
+                              <input id="apiInput"list="apiList" />
+                              <datalist id="apiList">
+                                   <option value="https://twelve-data1.p.rapidapi.com/price?symbol=TSLA">
+                                   <option value="Banana">
+                                        </datalist>
+
+                         </div>
+                    </div>
+
+                    <div class="damageDiv">
+                         <div class="input-box">
+                              <label for="damageInput">Damage Cost (%)</label>
+                              <input id="damageInput" type="text" oninput="twoFunction_percent()" autocomplete="off" />
+                         </div>
+                         <i class="fa-solid fa-equals"></i>
+                         <div class="input-box disableInput">
+                              <label for="marginInput">Entry Margin</label>
+                              <input id="marginInput" type="text" oninput="calculateEntry()" disabled />
+                         </div>
+                         <i class="fa-solid fa-xmark"></i>
+                         <div class="input-box">
+                              <label for="leverageInput">Entry Leverage</label>
+                              <input id="leverageInput" type="text" oninput="calculateEntry()" autocomplete="off" />
+                         </div>
+                         <i class="fa-solid fa-equals"></i>
+
+                         <div class="input-box disableInput">
+                              <label for="amountInput">Entry Amount</label>
+                              <input id="amountInput" type="text" oninput="calculateEntry()" disabled />
+                         </div>
+                    </div>
+
+                    <form class="conditionForm">
+                         <div class="titleDiv">
+                              <h2>Entry condition</h2>
+                              <!--<span class="span1">25%</span>-->
+                              <div class="strengthDiv">
+                                   <span class="spanTitle">0%</span>
+                                   <span class="spanFront"></span>
+                              </div>
+                         </div>
+                         <div class="form-group">
+                              <input type="checkbox" id="html" onchange="checkStrength()">
+                              <label for="html">S&R Area</label>
+                         </div>
+                         <div class="form-group">
+                              <input type="checkbox" id="css" onchange="checkStrength()">
+                              <label for="css">MACD Divergence</label>
+                         </div>
+                         <div class="form-group">
+                              <input type="checkbox" id="javascript" onchange="checkStrength()">
+                              <label for="javascript">Trend Follow</label>
+                         </div>
+                         <div class="form-group">
+                              <input type="checkbox" id="javascript2" onchange="checkStrength()">
+                              <label for="javascript2">Bar Action</label>
+                         </div>
+                    </form>
+                    <!--
+                    <form>
+                         <input type="radio" id="red" name="color" value="red">
+                         <label for="red">Retest</label><br>
+                     
+                         <input type="radio" id="blue" name="color" value="blue">
+                         <label for="blue">Breakout</label><br>
+                     
+                         <input type="radio" id="green" name="color" value="green">
+                         <label for="green">One hit</label><br>
+                       </form>-->
+
+                    <button id="addBut" onclick="addPair()">Add to portfolio</button>
+
+               </div>
+               <div class="throttleSys">
+                    <div class="addDiv">
+                         <div class="input-box">
+                              <label for="totalPositionInput_throttle">Target Position (%)</label>
+                              <input id="totalPositionInput_throttle" required autocomplete="off" />
+                         </div>
+                         <div class="addIconDiv" onclick="addThrottleDiv()">
+                              <i class="uil uil-plus"></i>
+                         </div>
+                    </div>
+
+                    <div class="input-box disableInput">
+                         <label for="entryPInput_throttle">Entry (%)</label>
+                         <input id="entryPInput_throttle" autocomplete="off" disabled />
+                    </div>
+                    <div class="throttleContainer">
+
+
+                         <div class="throttlediv">
+                              <div class="titleDiv">
+                                   <div style="display: flex; flex-direction: row; align-items: center;">
+                                        <h3>1. Throttle</h3>
+                                        <label class="switch">
+                                             <input type="checkbox" class="isThrottlecheckbox" id="checkbox" />
+                                             <div class="toggle">
+                                                  <div class="star1"></div>
+                                                  <div class="star2"></div>
+                                             </div>
+                                        </label>
+                                   </div>
+
+                                   <i class="uil uil-times-circle" onclick="deleteThrottleDiv(event)"></i>
+                              </div>
+
+
+                              <div class="input-box ">
+                                   <label for="amountInput1_throttle" class="amountLabel_throttle">Throttle
+                                        Margin</label>
+                                   <input id="amountInput1_throttle" class="amountInput_throttle" autocomplete="off"
+                                        oninput="calculateThrottle()" />
+                              </div>
+                              <div class="input-box">
+                                   <label for="priceInput1_throttle">Throttle Price</label>
+                                   <input id="priceInput1_throttle" class="priceInput_throttle" autocomplete="off"
+                                        oninput="calculateThrottle()" />
+                              </div>
+                              <div class="input-box disableInput">
+                                   <label for="percentInput1_throttle">Throttle (%)</label>
+                                   <input id="percentInput1_throttle" class="percentInput_throttle" required
+                                        autocomplete="off" disabled />
+                              </div>
+                              <div class="input-box disableInput">
+                                   <label for="avgInput1_throttle">Average Price</label>
+                                   <input id="avgInput1_throttle" class="avgInput_throttle" autocomplete="off"
+                                        disabled />
+                              </div>
+                         </div>
+
+
+                    </div>
+                    <!--
+                    <h3>2. Throttle</h3>
+
+                    <div class="throttlediv1">
+                         <div class="input-box">
+                              <label for="percentInput2_throttle">Throttle (%)</label>
+                              <input id="percentInput2_throttle" required autocomplete="off" />
+                         </div>
+                         <div class="input-box">
+                              <label for="amountInput2_throttle">Throttle Amount</label>
+                              <input id="amountInput2_throttle" required autocomplete="off" />
+                         </div>
+                         <div class="input-box">
+                              <label for="priceInput2_throttle">Throttle Price</label>
+                              <input id="priceInput2_throttle" required autocomplete="off" />
+                         </div>
+                         <div class="input-box">
+                              <label for="avgInput2_throttle">Average Price</label>
+                              <input id="avgInput2_throttle" required autocomplete="off" />
+                         </div>
+                    </div>-->
+
+               </div>
+               <div class="cutSys">
+                    <div class="input-box">
+                         <label for="entryInput_cutloss">Entry Price</label>
+                         <input id="entryInput_cutloss" type="text" autocomplete="off" oninput="twoFunction2(event)" />
+                    </div>
+                    <div class="cutDiv1">
+                         <div class="input-box">
+                              <label for="cutpriceInput_cutloss">Cutloss Price</label>
+                              <input id="cutpriceInput_cutloss" type="text" autocomplete="off"
+                                   oninput="calculateCutloss()" />
+                         </div>
+                         <div class="input-box disableInput">
+                              <label for="cutpercentInput_cutloss">Cutloss (%)</label>
+                              <input id="cutpercentInput_cutloss" type="text" autocomplete="off" disabled />
+                         </div>
+                    </div>
+
+                    <div class="cutDiv1">
+                         <div class="input-box disableInput">
+                              <label for="damagepercentInput_cutloss">Damage Loss (%)</label>
+                              <input id="damagepercentInput_cutloss" type="text" autocomplete="off" disabled />
+                         </div>
+                         <div class="input-box disableInput">
+                              <label for="damageamountInput_cutloss">Damage Amount</label>
+                              <input id="damageamountInput_cutloss" type="text" autocomplete="off" disabled />
+                         </div>
+                    </div>
+
+
+               </div>
+               <div class="profitSys">
+                    <div class="addDiv">
+                         <div class="addIconDiv" onclick="addProfitDiv()">
+                              <i class="uil uil-plus"></i>
+                         </div>
+                    </div>
+                    <div class="profitContainer">
+
+                         <div class="profitdiv">
+                              <div class="titleDiv">
+                                   <h3>1. Take Profit</h3>
+                                   <i class="uil uil-times-circle" onclick="deleteProfitDiv(event)"></i>
+                              </div>
+
+                              <div class="input-box">
+                                   <label for="takePInput1_profit">Take Profit (%)</label>
+                                   <input id="takePInput1_profit" class="percentInput_profit" type="text"
+                                        autocomplete="off" />
+                              </div>
+                              <div class="input-box">
+                                   <label for="priceInput1_profit">Profit Price</label>
+                                   <input id=priceInput1_profit" class="priceInput_profit" type="text"
+                                        autocomplete="off" />
+                              </div>
+                              <div class="input-box">
+                                   <label for="conditionInput1_profit">Profit Condition</label>
+                                   <input id="conditionInput1_profit" class="conditionInput_profit" type="text"
+                                        autocomplete="off" />
+                              </div>
+                              <div class="input-box disableInput">
+                                   <label for="amountInput1_profit">Profit Amount</label>
+                                   <input id="amountInput1_profit" class="amountInput_profit" type="text"
+                                        autocomplete="off" disabled />
+                              </div>
+
+                              <!--
+                              <div class="conditionDiv">
+                                   <div class="titleDiv">
+                                        <h2>Take profit condition:</h2>
+                                   </div>
+
+                                   <form class="conditionForm">
+                                        <div class="form-group">
+                                             <input type="checkbox" id="srcheck1_profit" onchange="checkStrength()">
+                                             <label for="srcheck1_profit">S&R Area</label>
+                                        </div>
+                                        <div class="form-group">
+                                             <input type="checkbox" id="macdcheck1_profit" onchange="checkStrength()">
+                                             <label for="macdcheck1_profit">MACD Divergence</label>
+                                        </div>
+                                        <div class="form-group">
+                                             <input type="checkbox" id="trendcheck1_profit" onchange="checkStrength()">
+                                             <label for="trendcheck1_profit">Trend Change</label>
+                                        </div>
+                                   </form>
+                              </div>-->
+                         </div>
+
+                    </div>
+               </div>
+               <div class="damageCostSys">
+                    <div class="costDiv">
+                         <div class="input-box">
+                              <label for="cutlossInput_damage">Cutloss (%)</label>
+                              <input id="cutlossInput_damage" type="text" autocomplete="off"
+                                   oninput="calculateDamageCost()" />
+                         </div>
+                         <div class="input-box">
+                              <label for="maxlossInput_damage">Max Loss (Margin)</label>
+                              <input id="maxlossInput_damage" type="text" autocomplete="off"
+                                   oninput="calculateDamageCost()" />
+                         </div>
+                         <div class="input-box">
+                              <label for="leverageInput_damage">Leverage</label>
+                              <input id="leverageInput_damage" type="text" autocomplete="off"
+                                   oninput="calculateDamageCost()" />
+                         </div>
+                    </div>
+
+                    <div class="costDiv">
+                         <div class="input-box disableInput">
+                              <label for="damageCostPInput_damage">Damage Cost (%)</label>
+                              <input id="damageCostPInput_damage" type="text" autocomplete="off"
+                                   oninput="calculateDamageCost()" disabled />
+                         </div>
+                         <div class="input-box disableInput">
+                              <label for="damageCostAInput_damage">Damage Cost (Margin)</label>
+                              <input id="damageCostAInput_damage" type="text" autocomplete="off"
+                                   oninput="calculateDamageCost()" disabled />
+                         </div>
+                    </div>
+
+
+               </div>
+          </div>
+
+
+     </div>
+
+     <div class="sideWall">
+          <div class="blurArea" onclick="closeMenu()">
+
+          </div>
+          <div class="sideBar">
+               <header>
+                    <svg onclick="closeMenu()" class="tds-icon tds-icon-close tds-modal-close-icon" viewBox="0 0 24 24"
+                         xmlns="http://www.w3.org/2000/svg">
+                         <path d="M18.53 17.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.748.748 0 0 1-1.06 0 .75.75 0 0 1 0-1.06L10.94 12 5.47 6.53a.75.75 0 1 1 1.06-1.06L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47z"
+                              fill="#393c41"></path>
+                    </svg>
+               </header>
+               <ul>
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../Portfolio/Portfolio.html">Portfolio</a></li>
+                    <li><a href="../Watchlist/Watchlist.html">Watchlist</a></li>
+                    <li><a href="System.html">Trading System</a></li>
+                    <li><a href="../Rule/Rule.html">Rules</a></li>
+               </ul>
+          </div>
+     </div>
+
+     <div class="toastDiv">
+          <ul id="toastUl">
+          </ul>
+     </div>
+
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-app-compat.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-database-compat.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+     <script src="https://unicons.iconscout.com/release/v4.0.8/script/monochrome/bundle.js"></script>
+     <script src="System.js"></script>
+</body>
+
+</html>
